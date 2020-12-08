@@ -1,9 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
+
+:root {
+  --line-border-fill: #6ace6f;
+  --back-step-fill: #e66666;
+  --line-border-empty: #b8acac;
+  --light-bg: #e2ddf1;
+  --dark-bg: #3b3b3b;
+}
+
 * {
   box-sizing: border-box;
 }
 body {
-  font-family: 'Roboto', sans-serif;
+  background-color: var(--light-bg);
+  font-family: 'Muli', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,6 +34,107 @@ body {
   margin-right: 0.75rem;
 }
 .logo-container p {
+  color: var(--dark-bg);
+
   font-size: 1.2rem;
+  font-weight: bolder;
   margin: 0;
+}
+.main-title {
+  color: var(--dark-bg);
+}
+.container {
+  text-align: center;
+}
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  width: 350px;
+}
+.progress-container::before {
+  content: '';
+  background-color: var(--line-border-empty);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+.progress {
+  background-color: var(--line-border-fill);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+.circle {
+  background-color: white;
+  color: #999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--line-border-empty);
+  transition: 0.4s ease;
+}
+.circle.active {
+  border-color: var(--line-border-fill);
+}
+.card {
+  position: relative;
+  width: 350px;
+  height: 200px;
+  background-color: var(--dark-bg);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+.card-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  color: var(--light-bg);
+  margin: 0;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+.card-title.show {
+  opacity: 1;
+}
+.btn {
+  background-color: var(--line-border-fill);
+  color: white;
+  border: 0;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0.5rem 1.5rem;
+  margin: 0.25rem;
+  font-size: 1rem;
+}
+#prev {
+  background-color: var(--back-step-fill);
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn:focus {
+  outline: 0;
+}
+.btn:disabled,
+#prev:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
 }
