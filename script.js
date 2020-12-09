@@ -45,8 +45,6 @@ function update(){
         if(idx < currentShow){
             removeShowClasses()
             title.classList.add('show')
-        }else{
-            title.classList.remove('show')
         }
     })
 
